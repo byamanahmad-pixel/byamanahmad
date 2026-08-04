@@ -1,19 +1,19 @@
-# byamanahmad.com
+# By Aman Ahmad — Personal Website
 
-A dark, editorial personal-brand website for Aman Ahmad.
+Static single-page website built for GitHub + Vercel.
 
-## Deploy on GitHub + Vercel
+## Update workflow
+1. Replace the files in your GitHub repository.
+2. Commit the changes.
+3. Vercel redeploys automatically.
 
-1. Open your GitHub repository.
-2. Click **Add file → Upload files**.
-3. Upload `index.html`, `styles.css`, `script.js`, and the complete `assets` folder.
-4. Click **Commit changes**.
-5. Sign in to Vercel using GitHub.
-6. Click **Add New → Project** and import the repository.
-7. Keep the default settings and click **Deploy**.
+## Main files
+- `index.html` — text and structure
+- `styles.css` — visual design
+- `script.js` — hover video and scroll effects
+- `assets/` — images and videos
 
-Because this is a static website, no build command is needed.
-
-## Before publishing
-
-Update the LinkedIn link in `index.html` with your exact LinkedIn profile URL.
+## Links included
+- LinkedIn: https://www.linkedin.com/in/bymoinuddinahmad
+- Spotify: https://open.spotify.com/artist/58H9qdFnbqrGQyEsg9sNwV
+- Podcast: https://youtu.be/knkXFNoGyn4
