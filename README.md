@@ -1,11 +1,12 @@
-# Aman Ahmad — Hero Preview Update
+# Aman Ahmad — Hero V2
 
-Changes:
-- Muted background reel: Riyadh Season → podcast → headphone portrait
-- A. monogram
-- Clean sans-serif AMAN AHMAD
+Hero changes:
+- Transparent signature logo in the top-left
+- Communication-led 22-second muted montage
+- AMAN in warm white
+- AHMAD in muted champagne
 - Content Strategy · Communications · Social Commentary
 - Dublin · Delhi · Riyadh
 
-Copy all files into the local byamanahmad repository folder, replace existing files,
-then Commit and Push in GitHub Desktop.
+Copy all files into the local `byamanahmad` repository folder, replace existing files,
+then commit and push through GitHub Desktop.
