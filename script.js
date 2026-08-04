@@ -1,17 +1,4 @@
 
-const heroVideo = document.querySelector('.hero-video');
-const heroPoster = document.querySelector('.hero-poster');
-
-if (heroVideo && heroPoster) {
-  heroVideo.pause();
-  heroVideo.currentTime = 0;
-
-  window.setTimeout(() => {
-    heroVideo.play().catch(() => {});
-    heroPoster.classList.add('is-hidden');
-  }, 2600);
-}
-
 document.getElementById('year').textContent = new Date().getFullYear();
 
 document.querySelectorAll('video').forEach(video => {
