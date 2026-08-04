@@ -1,9 +1,8 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const cards = document.querySelectorAll('.video-card, .project-card');
-cards.forEach(card => {
-  const video = card.querySelector('video');
-  if (!video) return;
+document.querySelectorAll('video').forEach(video => {
+  const card = video.closest('.feature, .work-card');
+  if (!card) return;
   card.addEventListener('mouseenter', () => video.play().catch(()=>{}));
   card.addEventListener('mouseleave', () => {
     video.pause();
@@ -11,8 +10,8 @@ cards.forEach(card => {
   });
 });
 
-const revealTargets = document.querySelectorAll('.chapter-head, .origin-grid, .media-strip, .spotify-card, .project, .project-card, .proof-copy, .proof-visual, .future-copy, .principle-grid, .contact');
-revealTargets.forEach(el => el.classList.add('reveal'));
+const targets = document.querySelectorAll('.section-title,.feature,.work-card,.public-copy,.public-grid img,.music-intro,.media-grid,.spotify,.recognition,.contact');
+targets.forEach(el => el.classList.add('reveal'));
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -21,11 +20,10 @@ const observer = new IntersectionObserver(entries => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: .12 });
-revealTargets.forEach(el => observer.observe(el));
+},{threshold:.12});
+
+targets.forEach(el => observer.observe(el));
 
 if (window.matchMedia('(hover: none)').matches) {
-  document.querySelectorAll('video').forEach(v => {
-    if (!v.closest('.future-bg')) v.setAttribute('controls','');
-  });
+  document.querySelectorAll('video').forEach(v => v.setAttribute('controls',''));
 }

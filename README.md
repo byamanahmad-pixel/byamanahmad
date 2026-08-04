@@ -1,19 +1,12 @@
-# By Aman Ahmad — Personal Website
+# Aman Ahmad — Personal Website
 
-Static single-page website built for GitHub + Vercel.
+Flat-file version for easy GitHub Desktop updates.
 
-## Update workflow
-1. Replace the files in your GitHub repository.
-2. Commit the changes.
-3. Vercel redeploys automatically.
+All images, videos, HTML, CSS and JavaScript sit in the same folder.
 
-## Main files
-- `index.html` — text and structure
-- `styles.css` — visual design
-- `script.js` — hover video and scroll effects
-- `assets/` — images and videos
-
-## Links included
-- LinkedIn: https://www.linkedin.com/in/bymoinuddinahmad
-- Spotify: https://open.spotify.com/artist/58H9qdFnbqrGQyEsg9sNwV
-- Podcast: https://youtu.be/knkXFNoGyn4
+## Update
+1. Replace files in the local GitHub repository folder.
+2. Open GitHub Desktop.
+3. Commit to main.
+4. Push origin.
+5. Vercel redeploys automatically.
