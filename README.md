@@ -1,12 +1,11 @@
-# Aman Ahmad — Personal Website
+# Aman Ahmad — Hero Preview Update
 
-Flat-file version for easy GitHub Desktop updates.
+Changes:
+- Muted background reel: Riyadh Season → podcast → headphone portrait
+- A. monogram
+- Clean sans-serif AMAN AHMAD
+- Content Strategy · Communications · Social Commentary
+- Dublin · Delhi · Riyadh
 
-All images, videos, HTML, CSS and JavaScript sit in the same folder.
-
-## Update
-1. Replace files in the local GitHub repository folder.
-2. Open GitHub Desktop.
-3. Commit to main.
-4. Push origin.
-5. Vercel redeploys automatically.
+Copy all files into the local byamanahmad repository folder, replace existing files,
+then Commit and Push in GitHub Desktop.
