@@ -12,6 +12,109 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    #work .section-title h2{
+      font-family:"DM Sans",sans-serif;
+      font-weight:500;
+      letter-spacing:-.055em;
+      line-height:.94;
+      max-width:980px;
+    }
+    #work .feature-copy h3,
+    #work .work-card-copy h3,
+    #work .dark-visual h3{
+      font-family:"DM Sans",sans-serif;
+      font-weight:500;
+      letter-spacing:-.035em;
+    }
+    #work .work-card-copy p,
+    #work .feature-copy p{
+      max-width:660px;
+    }
+    #work .podcast-proof{
+      display:grid;
+      grid-template-columns:1.35fr .65fr;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    #work .podcast-proof .work-card{
+      min-height:650px;
+    }
+    #work .guest-card{
+      min-height:650px;
+      position:relative;
+      overflow:hidden;
+      background:#111;
+      color:#fff;
+      text-decoration:none;
+    }
+    #work .guest-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(.72);
+      transition:transform .55s ease,filter .55s ease;
+    }
+    #work .guest-card:hover img{
+      transform:scale(1.025);
+      filter:brightness(.58);
+    }
+    #work .guest-card-copy{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      padding:28px;
+      background:linear-gradient(transparent,rgba(0,0,0,.92));
+    }
+    #work .guest-card-copy span{
+      font-size:10px;
+      letter-spacing:.17em;
+      color:#c4ae72;
+      font-weight:600;
+    }
+    #work .guest-card-copy h3{
+      font-family:"DM Sans",sans-serif;
+      font-size:34px;
+      font-weight:500;
+      letter-spacing:-.035em;
+      margin:10px 0 8px;
+    }
+    #work .guest-card-copy p{
+      color:#d0cbc2;
+      line-height:1.5;
+    }
+    #work .guest-card-copy strong{
+      display:block;
+      margin-top:18px;
+      font-size:13px;
+    }
+    #work .project-notes{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-top:22px;
+    }
+    #work .project-notes span{
+      padding:9px 12px;
+      border:1px solid #343434;
+      border-radius:999px;
+      font-size:11px;
+      color:#bbb6ae;
+    }
+    #work .work-card.wide .work-card-copy p{
+      max-width:570px;
+      font-size:18px;
+      line-height:1.55;
+    }
+    @media(max-width:900px){
+      #work .podcast-proof{grid-template-columns:1fr}
+      #work .podcast-proof .work-card,
+      #work .guest-card{min-height:560px}
+    }
+  </style>
+
 </head>
 <body>
   <header class="nav">
@@ -40,18 +143,18 @@
     <section id="work" class="section">
       <div class="section-title">
         <span>Selected Work</span>
-        <h2>Business, media and audience growth.</h2>
+        <h2>Projects across business, media and brands.</h2>
       </div>
 
       <article class="feature">
         <div class="feature-copy">
           <span>COOLPLANET × MUSANADAH</span>
-          <h3>Saudi–Ireland B2B partnership campaign</h3>
-          <p>Produced and directed the launch film, shaping complex sustainability and business objectives into a clear LinkedIn narrative.</p>
-          <div class="facts">
-            <b>Cross-border campaign</b>
-            <b>Stakeholder messaging</b>
-            <b>Qualified business leads</b>
+          <h3>A cross-border launch with one clear commercial story.</h3>
+          <p>Produced and directed the announcement film for a Saudi–Ireland partnership, aligning both organisations around a concise LinkedIn release.</p>
+          <div class="project-notes">
+            <span>Launch film</span>
+            <span>Cross-border messaging</span>
+            <span>Stakeholder alignment</span>
           </div>
         </div>
         <video muted loop playsinline preload="metadata">
@@ -59,30 +162,47 @@
         </video>
       </article>
 
-      <div class="work-grid">
+      <div class="podcast-proof">
         <a class="work-card" href="https://youtu.be/knkXFNoGyn4?si=WQSBxxcLhovutA9D" target="_blank" rel="noopener">
-          <video muted loop playsinline preload="metadata" poster="raga.webp">
+          <video muted loop playsinline preload="metadata">
             <source src="podcast-preview.mp4" type="video/mp4">
           </video>
           <div class="work-card-copy">
             <span>THE ADIL AHMAD SHOW</span>
-            <h3>Content strategy and platform growth</h3>
-            <p>300K+ Instagram · 40K+ YouTube</p>
-            <strong>Watch ↗</strong>
+            <h3>A show built through strong guests and consistent publishing.</h3>
+            <p>Worked behind the platform across guest acquisition, collaborations and editorial decisions as it grew to 300K+ on Instagram and 40K+ on YouTube.</p>
+            <div class="project-notes">
+              <span>Guest outreach</span>
+              <span>High-profile interviews</span>
+              <span>Platform growth</span>
+            </div>
+            <strong>Watch the conversation ↗</strong>
           </div>
         </a>
 
+        <a class="guest-card" href="https://www.instagram.com/officialraga/" target="_blank" rel="noopener">
+          <img src="raga.webp" alt="Aman Ahmad with Indian rapper RAGA">
+          <div class="guest-card-copy">
+            <span>FROM THE GUEST ROOM</span>
+            <h3>RAGA</h3>
+            <p>A second podcast setting with one of Indian hip-hop’s recognised voices.</p>
+            <strong>View @officialraga ↗</strong>
+          </div>
+        </a>
+      </div>
+
+      <div class="work-grid">
         <article class="work-card dark-card">
           <div class="dark-visual">
             <span>MUSANADAH FACILITIES</span>
-            <h3>B2B advisory</h3>
+            <h3>From company updates to a more credible point of view.</h3>
           </div>
           <div class="work-card-copy">
-            <p>LinkedIn content, founder-led communication and webinar strategy.</p>
+            <p>Advised leadership on educational LinkedIn formats, founder-led videos and a webinar funnel with a measurable commercial outcome.</p>
             <div class="metrics">
               <div><b>60</b><span>registrations</span></div>
               <div><b>7</b><span>qualified leads</span></div>
-              <div><b>1</b><span>conversion</span></div>
+              <div><b>1</b><span>client conversion</span></div>
             </div>
           </div>
         </article>
@@ -93,8 +213,13 @@
           </video>
           <div class="work-card-copy over">
             <span>MG MOTOR INDIA</span>
-            <h3>Content direction for an eight-member team</h3>
-            <p>30,000+ users reached on a limited budget.</p>
+            <h3>Organic branded work, handled from idea to delivery.</h3>
+            <p>Built the freelance team, shaped the creative and managed the production cycle for work designed around an audience the creators had already earned.</p>
+            <div class="project-notes">
+              <span>Creative direction</span>
+              <span>Team assembly</span>
+              <span>End-to-end production</span>
+            </div>
           </div>
         </article>
       </div>
