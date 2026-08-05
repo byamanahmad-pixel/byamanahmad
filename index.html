@@ -1132,6 +1132,72 @@
   }
 </style>
 
+
+<style>
+  .feature-media .musanadah-link{
+    position:absolute;
+    inset:0;
+    display:block;
+    z-index:1;
+  }
+
+  .feature-media .musanadah-link video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .feature-media .sound-button{
+    z-index:3;
+  }
+
+  .spotify-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .spotify-actions span{
+    color:#69645d;
+  }
+
+  .twinztagram-link{
+    color:#a9a49c;
+    font-size:11px;
+    text-decoration:none;
+    letter-spacing:.03em;
+  }
+
+  .twinztagram-link:hover{
+    color:#fff;
+  }
+
+  footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+
+  footer > span:last-child{
+    text-align:right;
+  }
+
+  @media(max-width:700px){
+    footer{
+      align-items:flex-start;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    footer > span:last-child{
+      text-align:left;
+    }
+  }
+</style>
+
 </head>
 <body>
   <header class="nav">
@@ -1176,9 +1242,11 @@
         </div>
 
         <div class="feature-media">
-          <video id="musanadah-video" muted loop playsinline preload="metadata" controls>
-            <source src="musanadah.mp4" type="video/mp4">
-          </video>
+          <a class="musanadah-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7299715481672814593/?originalSubdomain=ae" target="_blank" rel="noopener" aria-label="View the CoolPlanet and Musanadah launch post on LinkedIn">
+            <video id="musanadah-video" muted loop playsinline preload="metadata" controls>
+              <source src="musanadah.mp4" type="video/mp4">
+            </video>
+          </a>
           <button class="sound-button" id="musanadah-sound" type="button">Play with sound</button>
         </div>
       </article>
@@ -1251,7 +1319,7 @@
 
           <div class="work-card-copy over">
             <span>MG MOTOR INDIA</span>
-            <h3>Behind every campaign is a hundred decisions.</h3>
+            <h3>Behind every successful campaign are hundreds of decisions.</h3>
             <p>Built the freelance production team and coordinated the project from planning through final delivery.</p>
             <div class="project-notes">
               <span>Creative direction</span>
@@ -1304,7 +1372,7 @@
 
       <div class="music-opening final-music-opening">
         <div class="music-intro compact-intro">
-          <p>The stage came first. Years of performing before live audiences shaped Aman’s understanding of attention, timing and communication, the foundation of the work he does today.</p>
+          <p>The stage came first. Years of performing with his twin brother Adil Ahmad as Twinztagram shaped Aman’s understanding of attention, timing and communication, the foundation of the work he does today.</p>
           <p class="music-proof-line">The journey includes TEDx talks, 214+ live shows across India and abroad, television and radio appearances, playback and concept work for Vivo and Meesho, and original music surpassing two million Spotify streams.</p>
         </div>
 
@@ -1317,7 +1385,6 @@
           <div class="live-feature-copy">
             <span>LIVE PERFORMANCE</span>
             <h3>214+ shows</h3>
-            <p>From university stages to major public events across India and Saudi Arabia.</p>
             <small>Red FM rated Twinztagram the most entertaining beatbox duo in India.</small>
           </div>
         </section>
@@ -1369,7 +1436,11 @@
           <div><b>2M+</b><span>streams</span></div>
           <div><b>50K+</b><span>monthly listeners</span></div>
         </div>
-        <strong>Listen ↗</strong>
+        <div class="spotify-actions">
+          <strong>Listen ↗</strong>
+          <span>·</span>
+          <a class="twinztagram-link" href="https://www.instagram.com/twinztagram_/?hl=en" target="_blank" rel="noopener">Explore Twinztagram ↗</a>
+        </div>
       </a>
     </section>
 
@@ -1397,8 +1468,8 @@
   </main>
 
   <footer>
-    <span>© <span id="year"></span> Aman Ahmad</span>
-    <span>byamanahmad.com</span>
+    <span>© <span id="year"></span> Aman Ahmad. All rights reserved.</span>
+    <span>Designed with purpose in Dublin, Ireland.</span>
   </footer>
 
   <script src="script.js"></script>
@@ -1408,7 +1479,9 @@
     const musanadahSound = document.getElementById('musanadah-sound');
 
     if (musanadahVideo && musanadahSound) {
-      musanadahSound.addEventListener('click', () => {
+      musanadahSound.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
         musanadahVideo.muted = false;
         musanadahVideo.play().catch(() => {});
         musanadahSound.textContent = 'Sound on';
