@@ -777,6 +777,137 @@
   }
 </style>
 
+
+<style>
+  /* Final Music-section refinement */
+
+  .music-opening{
+    max-width:1160px;
+    margin:0 auto 70px;
+    display:grid;
+    grid-template-columns:.82fr 1.18fr;
+    gap:42px;
+    align-items:center;
+  }
+
+  .compact-intro{
+    margin:0;
+    max-width:520px;
+  }
+
+  .compact-intro p{
+    font-family:"DM Sans",sans-serif;
+    font-size:clamp(20px,2.2vw,30px);
+    line-height:1.4;
+    letter-spacing:-.02em;
+    color:#e1ddd5;
+    margin:0;
+  }
+
+  .compact-intro .music-proof-line{
+    margin-top:20px;
+    font-size:15px;
+    line-height:1.65;
+    color:#aaa49b;
+  }
+
+  .compact-stage{
+    display:block;
+    margin:0;
+  }
+
+  .compact-stage .chapter-heading{
+    margin-bottom:18px;
+  }
+
+  .compact-stage .chapter-heading h3{
+    font-size:clamp(36px,4.3vw,58px);
+    margin:9px 0 12px;
+  }
+
+  .compact-stage .cinematic-carousel{
+    height:420px;
+  }
+
+  .compact-studio{
+    max-width:980px;
+    grid-template-columns:250px minmax(0,1fr);
+    gap:28px;
+    margin-bottom:70px;
+  }
+
+  .compact-studio .chapter-heading h3{
+    display:none;
+  }
+
+  .compact-studio .chapter-heading p{
+    margin-top:14px;
+  }
+
+  .compact-studio .cinematic-carousel{
+    height:420px;
+  }
+
+  .credentials-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .credential-card{
+    min-height:360px;
+  }
+
+  .credential-carousel,
+  .credential-slide{
+    position:absolute;
+    inset:0;
+  }
+
+  .credential-slide{
+    opacity:0;
+    transition:opacity 1s ease, transform 6s ease;
+    transform:scale(1.025);
+  }
+
+  .credential-slide.active{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  .credential-slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .credential-copy p{
+    margin:8px 0 0;
+    color:#bcb7ae;
+    font-size:12px;
+    line-height:1.45;
+  }
+
+  @media(max-width:900px){
+    .music-opening{
+      grid-template-columns:1fr;
+      gap:32px;
+    }
+
+    .compact-intro{
+      max-width:none;
+    }
+
+    .compact-stage .cinematic-carousel,
+    .compact-studio .cinematic-carousel{
+      height:380px;
+    }
+
+    .compact-studio{
+      grid-template-columns:1fr;
+      max-width:100%;
+    }
+  }
+</style>
+
 </head>
 <body>
   <header class="nav">
@@ -947,35 +1078,36 @@
         <h2>Understanding attention through performance.</h2>
       </div>
 
-      <div class="music-intro">
-        <p>The stage came first. Years of performing before live audiences shaped Aman’s understanding of attention, timing and communication—the foundation of the work he does today.</p>
-        <p class="music-proof-line">The journey includes TEDx talks, 214+ live shows across India and abroad, television and radio appearances, playback and concept work for Vivo and Meesho, and original music surpassing two million Spotify streams.</p>
+      <div class="music-opening">
+        <div class="music-intro compact-intro">
+          <p>The stage came first. Years of performing before live audiences shaped Aman’s understanding of attention, timing and communication, the foundation of the work he does today.</p>
+          <p class="music-proof-line">The journey includes TEDx talks, 214+ live shows across India and abroad, television and radio appearances, playback and concept work for Vivo and Meesho, and original music surpassing two million Spotify streams.</p>
+        </div>
+
+        <section class="visual-chapter stage-chapter compact-stage" aria-label="Live performance highlights">
+          <div class="chapter-heading">
+            <span>LIVE PERFORMANCE</span>
+            <h3>214+ shows</h3>
+            <p>From university stages to major public events across India and Saudi Arabia.</p>
+          </div>
+
+          <div class="cinematic-carousel stage-carousel" data-carousel="stage">
+            <div class="carousel-slide active video-slide">
+              <video muted playsinline preload="metadata">
+                <source src="live-shows.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="carousel-slide"><img src="stage-1.jpg" alt="Aman Ahmad performing live"></div>
+            <div class="carousel-slide"><img src="stage-2.jpg" alt="Aman Ahmad performing at a large event"></div>
+            <div class="carousel-slide"><img src="stage-3.jpg" alt="Aman Ahmad performing on stage"></div>
+            <div class="carousel-shade"></div>
+          </div>
+        </section>
       </div>
 
-      <section class="visual-chapter stage-chapter" aria-label="Live performance highlights">
-        <div class="chapter-heading">
-          <span>LIVE PERFORMANCE</span>
-          <h3>214+ shows</h3>
-          <p>From university stages to major public events across India and Saudi Arabia.</p>
-        </div>
-
-        <div class="cinematic-carousel stage-carousel" data-carousel="stage">
-          <div class="carousel-slide active video-slide">
-            <video muted playsinline preload="metadata">
-              <source src="live-shows.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="carousel-slide"><img src="stage-1.jpg" alt="Aman Ahmad performing live"></div>
-          <div class="carousel-slide"><img src="stage-2.jpg" alt="Aman Ahmad performing at a large event"></div>
-          <div class="carousel-slide"><img src="stage-3.jpg" alt="Aman Ahmad performing on stage"></div>
-          <div class="carousel-shade"></div>
-        </div>
-      </section>
-
-      <section class="visual-chapter studio-chapter" aria-label="Studio work">
+      <section class="visual-chapter studio-chapter compact-studio" aria-label="Studio work">
         <div class="chapter-heading">
           <span>STUDIO</span>
-          <h3>Where performance became craft.</h3>
           <p>Recording, experimentation and audio-led creative work behind the stage.</p>
         </div>
 
@@ -988,21 +1120,25 @@
       </section>
 
       <div class="credentials-grid">
-        <article class="credential-card image-card">
-          <img src="tedx-talk.jpg" alt="Aman Ahmad performing at TEDxJMI">
+        <article class="credential-card image-card tedx-card">
+          <div class="credential-carousel" data-carousel="tedx">
+            <div class="credential-slide active"><img src="tedx.webp" alt="Aman Ahmad and Adil Ahmad with the TEDx award"></div>
+            <div class="credential-slide"><img src="tedx-talk.jpg" alt="Aman Ahmad speaking at TEDxJMI"></div>
+          </div>
           <div class="credential-copy">
             <span>TEDx TALKS</span>
             <h3>Ideas delivered live.</h3>
           </div>
         </article>
 
-        <article class="credential-card image-card">
+        <a class="credential-card image-card" href="https://www.instagram.com/twinztagram_/?hl=en" target="_blank" rel="noopener">
           <img src="wiba.webp" alt="World Influencers and Bloggers Award">
           <div class="credential-copy">
             <span>WIBA WINNER</span>
-            <h3>Best Entertainment Influencer.</h3>
+            <h3>Best Entertainment Influencers</h3>
+            <p>Twinztagram · 17K+ followers</p>
           </div>
-        </article>
+        </a>
 
         <a class="credential-card spotify-card" href="https://open.spotify.com/artist/58H9qdFnbqrGQyEsg9sNwV" target="_blank" rel="noopener">
           <div>
@@ -1145,6 +1281,22 @@
 
   if (studioCarousel) startImageCarousel(studioCarousel, 6000);
   if (stageCarousel) startStageCarousel(stageCarousel);
+</script>
+
+
+<script>
+  const tedxCarousel = document.querySelector('[data-carousel="tedx"]');
+
+  if (tedxCarousel) {
+    const tedxSlides = [...tedxCarousel.querySelectorAll('.credential-slide')];
+    let tedxIndex = 0;
+
+    window.setInterval(() => {
+      tedxSlides[tedxIndex].classList.remove('active');
+      tedxIndex = (tedxIndex + 1) % tedxSlides.length;
+      tedxSlides[tedxIndex].classList.add('active');
+    }, 6000);
+  }
 </script>
 
 </body>
