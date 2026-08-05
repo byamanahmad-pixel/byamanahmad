@@ -908,6 +908,230 @@
   }
 </style>
 
+
+<style>
+  /* Final music layout */
+
+  .final-music-opening{
+    max-width:1160px;
+    margin:0 auto 24px;
+    display:grid;
+    grid-template-columns:.82fr 1.18fr;
+    gap:36px;
+    align-items:stretch;
+  }
+
+  .live-feature-card{
+    min-height:520px;
+    background:#111;
+    position:relative;
+    overflow:hidden;
+    display:grid;
+    grid-template-rows:1fr auto;
+  }
+
+  .live-feature-media{
+    min-height:360px;
+    overflow:hidden;
+  }
+
+  .live-feature-media video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .live-feature-copy{
+    padding:26px;
+    background:#151515;
+  }
+
+  .live-feature-copy span,
+  .mini-card-copy span,
+  .spotify-feature-card > div:first-child > span{
+    color:#c4ae72;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.17em;
+  }
+
+  .live-feature-copy h3{
+    font-family:"DM Sans",sans-serif;
+    font-size:clamp(38px,4.5vw,62px);
+    font-weight:500;
+    letter-spacing:-.05em;
+    line-height:.95;
+    margin:9px 0 12px;
+  }
+
+  .live-feature-copy p{
+    color:#bbb6ae;
+    font-size:14px;
+    line-height:1.55;
+    margin:0;
+  }
+
+  .live-feature-copy small{
+    display:block;
+    margin-top:14px;
+    color:#8f8a82;
+    font-size:11px;
+    line-height:1.5;
+  }
+
+  .creative-credentials-row{
+    max-width:1160px;
+    margin:0 auto 18px;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:16px;
+  }
+
+  .mini-credential{
+    height:390px;
+    position:relative;
+    overflow:hidden;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+  }
+
+  .mini-carousel,
+  .mini-slide{
+    position:absolute;
+    inset:0;
+  }
+
+  .mini-slide{
+    opacity:0;
+    transition:opacity 1s ease,transform 6s ease;
+    transform:scale(1.02);
+  }
+
+  .mini-slide.active{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  .mini-slide img,
+  .wiba-card > img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .contain-slide img{
+    object-fit:contain;
+    background:#0d0d0d;
+  }
+
+  .mini-card-copy{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:3;
+    padding:22px;
+    background:linear-gradient(transparent,rgba(0,0,0,.94));
+  }
+
+  .mini-card-copy p{
+    margin:9px 0 0;
+    color:#e0dcd4;
+    font-size:15px;
+    line-height:1.45;
+  }
+
+  .mini-card-copy small{
+    display:block;
+    margin-top:8px;
+    color:#aaa49b;
+    font-size:11px;
+  }
+
+  .spotify-feature-card{
+    max-width:1160px;
+    min-height:300px;
+    margin:0 auto;
+    padding:34px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr auto;
+    gap:32px;
+    align-items:center;
+    color:#fff;
+    text-decoration:none;
+    background:
+      radial-gradient(circle at 16% 12%,rgba(196,174,114,.24),transparent 40%),
+      linear-gradient(145deg,#191713,#0f0f0f 62%);
+    border:1px solid #292722;
+    transition:transform .35s ease,border-color .35s ease;
+  }
+
+  .spotify-feature-card:hover{
+    transform:translateY(-3px);
+    border-color:#5a5037;
+  }
+
+  .spotify-feature-card h3{
+    font-family:"DM Sans",sans-serif;
+    font-size:clamp(46px,6vw,82px);
+    font-weight:500;
+    letter-spacing:-.055em;
+    line-height:.95;
+    margin:10px 0 0;
+  }
+
+  .spotify-feature-numbers{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+
+  .spotify-feature-numbers div{
+    display:grid;
+    gap:5px;
+  }
+
+  .spotify-feature-numbers b{
+    font-size:36px;
+    font-weight:500;
+    letter-spacing:-.04em;
+  }
+
+  .spotify-feature-numbers span{
+    color:#aaa49b;
+    font-size:12px;
+  }
+
+  .spotify-feature-card strong{
+    font-size:13px;
+  }
+
+  @media(max-width:900px){
+    .final-music-opening{
+      grid-template-columns:1fr;
+    }
+
+    .creative-credentials-row{
+      grid-template-columns:1fr;
+    }
+
+    .mini-credential{
+      height:420px;
+    }
+
+    .spotify-feature-card{
+      grid-template-columns:1fr;
+    }
+
+    .spotify-feature-numbers{
+      grid-template-columns:1fr 1fr;
+    }
+  }
+</style>
+
 </head>
 <body>
   <header class="nav">
@@ -1078,80 +1302,75 @@
         <h2>Understanding attention through performance.</h2>
       </div>
 
-      <div class="music-opening">
+      <div class="music-opening final-music-opening">
         <div class="music-intro compact-intro">
           <p>The stage came first. Years of performing before live audiences shaped Aman’s understanding of attention, timing and communication, the foundation of the work he does today.</p>
           <p class="music-proof-line">The journey includes TEDx talks, 214+ live shows across India and abroad, television and radio appearances, playback and concept work for Vivo and Meesho, and original music surpassing two million Spotify streams.</p>
         </div>
 
-        <section class="visual-chapter stage-chapter compact-stage" aria-label="Live performance highlights">
-          <div class="chapter-heading">
+        <section class="live-feature-card" aria-label="Live performance highlights">
+          <div class="live-feature-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="live-shows.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="live-feature-copy">
             <span>LIVE PERFORMANCE</span>
             <h3>214+ shows</h3>
             <p>From university stages to major public events across India and Saudi Arabia.</p>
-          </div>
-
-          <div class="cinematic-carousel stage-carousel" data-carousel="stage">
-            <div class="carousel-slide active video-slide">
-              <video muted playsinline preload="metadata">
-                <source src="live-shows.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="carousel-slide"><img src="stage-1.jpg" alt="Aman Ahmad performing live"></div>
-            <div class="carousel-slide"><img src="stage-2.jpg" alt="Aman Ahmad performing at a large event"></div>
-            <div class="carousel-slide"><img src="stage-3.jpg" alt="Aman Ahmad performing on stage"></div>
-            <div class="carousel-shade"></div>
+            <small>Red FM rated Twinztagram the most entertaining beatbox duo in India.</small>
           </div>
         </section>
       </div>
 
-      <section class="visual-chapter studio-chapter compact-studio" aria-label="Studio work">
-        <div class="chapter-heading">
-          <span>STUDIO</span>
-          <p>Recording, experimentation and audio-led creative work behind the stage.</p>
-        </div>
-
-        <div class="cinematic-carousel studio-carousel" data-carousel="studio">
-          <div class="carousel-slide active"><img src="studio-1.jpg" alt="Aman Ahmad recording in a studio"></div>
-          <div class="carousel-slide"><img src="studio-2.jpg" alt="Aman Ahmad in a recording studio"></div>
-          <div class="carousel-slide"><img src="studio-3.jpg" alt="Aman Ahmad during a creative performance shoot"></div>
-          <div class="carousel-shade"></div>
-        </div>
-      </section>
-
-      <div class="credentials-grid">
-        <article class="credential-card image-card tedx-card">
-          <div class="credential-carousel" data-carousel="tedx">
-            <div class="credential-slide active"><img src="tedx.webp" alt="Aman Ahmad and Adil Ahmad with the TEDx award"></div>
-            <div class="credential-slide"><img src="tedx-talk.jpg" alt="Aman Ahmad speaking at TEDxJMI"></div>
+      <div class="creative-credentials-row">
+        <article class="mini-credential studio-card">
+          <div class="mini-carousel" data-carousel="studio">
+            <div class="mini-slide active"><img src="studio-1.jpg" alt="Aman Ahmad recording in a studio"></div>
+            <div class="mini-slide"><img src="studio-2.jpg" alt="Aman Ahmad in a recording studio"></div>
+            <div class="mini-slide"><img src="studio-3.jpg" alt="Aman Ahmad during a creative performance shoot"></div>
           </div>
-          <div class="credential-copy">
-            <span>TEDx TALKS</span>
-            <h3>Ideas delivered live.</h3>
+          <div class="mini-card-copy">
+            <span>STUDIO</span>
+            <p>Recording, experimentation and audio-led creative work behind the stage.</p>
           </div>
         </article>
 
-        <a class="credential-card image-card" href="https://www.instagram.com/twinztagram_/?hl=en" target="_blank" rel="noopener">
-          <img src="wiba.webp" alt="World Influencers and Bloggers Award">
-          <div class="credential-copy">
-            <span>WIBA WINNER</span>
-            <h3>Best Entertainment Influencers</h3>
-            <p>Twinztagram · 17K+ followers</p>
+        <article class="mini-credential tedx-card">
+          <div class="mini-carousel" data-carousel="tedx">
+            <div class="mini-slide active"><img src="tedx.webp" alt="Aman Ahmad and Adil Ahmad with the TEDx award"></div>
+            <div class="mini-slide"><img src="tedx-talk.jpg" alt="Aman Ahmad speaking at TEDxJMI"></div>
+            <div class="mini-slide contain-slide"><img src="stage-1.jpg" alt="Aman Ahmad performing live"></div>
+            <div class="mini-slide contain-slide"><img src="stage-2.jpg" alt="Aman Ahmad at a major live event"></div>
+            <div class="mini-slide contain-slide"><img src="stage-3.jpg" alt="Aman Ahmad performing on stage"></div>
           </div>
-        </a>
+          <div class="mini-card-copy">
+            <span>TEDx TALKS</span>
+            <p>Ideas and performance delivered live.</p>
+          </div>
+        </article>
 
-        <a class="credential-card spotify-card" href="https://open.spotify.com/artist/58H9qdFnbqrGQyEsg9sNwV" target="_blank" rel="noopener">
-          <div>
-            <span>SPOTIFY</span>
-            <h3>Aman Ahmad</h3>
+        <a class="mini-credential wiba-card" href="https://www.instagram.com/twinztagram_/?hl=en" target="_blank" rel="noopener">
+          <img src="wiba.webp" alt="World Influencers and Bloggers Award">
+          <div class="mini-card-copy">
+            <span>WIBA WINNER</span>
+            <p>Best Entertainment Influencer</p>
+            <small>Twinztagram · 17K+ followers</small>
           </div>
-          <div class="spotify-card-numbers">
-            <div><b>2M+</b><span>streams</span></div>
-            <div><b>50K+</b><span>monthly listeners</span></div>
-          </div>
-          <strong>Listen ↗</strong>
         </a>
       </div>
+
+      <a class="spotify-feature-card" href="https://open.spotify.com/artist/58H9qdFnbqrGQyEsg9sNwV" target="_blank" rel="noopener">
+        <div>
+          <span>SPOTIFY</span>
+          <h3>Aman Ahmad</h3>
+        </div>
+        <div class="spotify-feature-numbers">
+          <div><b>2M+</b><span>streams</span></div>
+          <div><b>50K+</b><span>monthly listeners</span></div>
+        </div>
+        <strong>Listen ↗</strong>
+      </a>
     </section>
 
     <section class="recognition">
@@ -1297,6 +1516,27 @@
       tedxSlides[tedxIndex].classList.add('active');
     }, 6000);
   }
+</script>
+
+
+<script>
+  function runMiniCarousel(selector, interval = 6000) {
+    const root = document.querySelector(selector);
+    if (!root) return;
+
+    const slides = [...root.querySelectorAll('.mini-slide')];
+    if (slides.length < 2) return;
+
+    let index = 0;
+    window.setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, interval);
+  }
+
+  runMiniCarousel('[data-carousel="studio"]', 6000);
+  runMiniCarousel('[data-carousel="tedx"]', 6000);
 </script>
 
 </body>
