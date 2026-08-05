@@ -539,6 +539,244 @@
   }
 </style>
 
+
+<style>
+  /* Final visual polish */
+
+  .public-showcase{
+    max-width:1160px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 430px;
+    gap:72px;
+    align-items:center;
+  }
+
+  .public-copy{
+    max-width:620px;
+  }
+
+  .phone-stage{
+    min-height:680px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    position:relative;
+  }
+
+  .phone-stage::before{
+    content:"";
+    position:absolute;
+    right:-50px;
+    width:430px;
+    height:430px;
+    border-radius:50%;
+    background:radial-gradient(circle,#c4ae722c,transparent 70%);
+    filter:blur(12px);
+  }
+
+  .visual-chapter{
+    max-width:1160px;
+    margin:0 auto 80px;
+    display:grid;
+    grid-template-columns:320px minmax(0,1fr);
+    gap:36px;
+    align-items:center;
+  }
+
+  .chapter-heading span,
+  .credential-copy span,
+  .spotify-card > div:first-child > span{
+    color:#c4ae72;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.17em;
+  }
+
+  .chapter-heading h3{
+    font-family:"DM Sans",sans-serif;
+    font-size:clamp(40px,5vw,68px);
+    font-weight:500;
+    letter-spacing:-.05em;
+    line-height:.95;
+    margin:12px 0 16px;
+  }
+
+  .chapter-heading p{
+    color:#aaa49b;
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  .cinematic-carousel{
+    height:570px;
+    position:relative;
+    overflow:hidden;
+    background:#111;
+  }
+
+  .carousel-slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transform:scale(1.025);
+    transition:opacity 1.15s ease,transform 7s ease;
+    pointer-events:none;
+  }
+
+  .carousel-slide.active{
+    opacity:1;
+    transform:scale(1);
+    z-index:2;
+  }
+
+  .carousel-slide img,
+  .carousel-slide video{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+  }
+
+  .carousel-shade{
+    position:absolute;
+    inset:0;
+    z-index:3;
+    pointer-events:none;
+    background:linear-gradient(90deg,rgba(0,0,0,.16),transparent 45%),
+               linear-gradient(0deg,rgba(0,0,0,.3),transparent 38%);
+  }
+
+  .credentials-grid{
+    max-width:1160px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:16px;
+  }
+
+  .credential-card{
+    min-height:390px;
+    position:relative;
+    overflow:hidden;
+    background:#121212;
+    color:#fff;
+    text-decoration:none;
+  }
+
+  .image-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .6s ease,filter .6s ease;
+  }
+
+  .image-card:hover img{
+    transform:scale(1.025);
+    filter:brightness(.8);
+  }
+
+  .credential-copy{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:26px;
+    background:linear-gradient(transparent,rgba(0,0,0,.94));
+  }
+
+  .credential-copy h3,
+  .spotify-card h3{
+    font-family:"DM Sans",sans-serif;
+    font-size:clamp(26px,2.5vw,38px);
+    font-weight:500;
+    letter-spacing:-.04em;
+    line-height:1.05;
+    margin:10px 0 0;
+  }
+
+  .spotify-card{
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    background:
+      radial-gradient(circle at 18% 10%,rgba(196,174,114,.24),transparent 42%),
+      linear-gradient(145deg,#191713,#0f0f0f 62%);
+    border:1px solid #292722;
+    transition:transform .35s ease,border-color .35s ease;
+  }
+
+  .spotify-card:hover{
+    transform:translateY(-3px);
+    border-color:#5a5037;
+  }
+
+  .spotify-card-numbers{
+    display:grid;
+    gap:18px;
+    margin:35px 0;
+  }
+
+  .spotify-card-numbers div{
+    display:grid;
+    gap:4px;
+  }
+
+  .spotify-card-numbers b{
+    font-family:"DM Sans",sans-serif;
+    font-size:36px;
+    font-weight:500;
+    letter-spacing:-.04em;
+  }
+
+  .spotify-card-numbers span{
+    color:#aaa49b;
+    font-size:12px;
+  }
+
+  .spotify-card strong{
+    font-size:13px;
+  }
+
+  .cross-cultural-note{
+    margin:16px 0 0;
+    color:#8e8981;
+    font-size:11px;
+    letter-spacing:.08em;
+    line-height:1.5;
+  }
+
+  @media(max-width:900px){
+    .public-showcase{
+      grid-template-columns:1fr;
+      gap:36px;
+    }
+
+    .phone-stage{
+      justify-content:center;
+      min-height:610px;
+    }
+
+    .visual-chapter{
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+
+    .cinematic-carousel{
+      height:480px;
+    }
+
+    .credentials-grid{
+      grid-template-columns:1fr;
+    }
+
+    .credential-card{
+      min-height:420px;
+    }
+  }
+</style>
+
 </head>
 <body>
   <header class="nav">
@@ -680,6 +918,7 @@
       <div class="public-showcase">
         <div class="public-copy">
           <p>Independent commentary on faith, society and the human story.</p>
+
           <div class="large-metric">1.08M</div>
           <span>views on the second video published on the channel</span>
 
@@ -690,7 +929,6 @@
 
           <a href="https://www.instagram.com/byamanahmad" target="_blank" rel="noopener">View on Instagram ↗</a>
         </div>
-      </div>
 
         <div class="phone-stage" aria-label="Aman Ahmad social commentary reels">
           <div class="iphone">
@@ -714,50 +952,70 @@
         <p class="music-proof-line">The journey includes TEDx talks, 214+ live shows across India and abroad, television and radio appearances, playback and concept work for Vivo and Meesho, and original music surpassing two million Spotify streams.</p>
       </div>
 
-      <div class="performance-feature">
-        <video autoplay muted loop playsinline preload="metadata">
-          <source src="live-shows.mp4" type="video/mp4">
-        </video>
-        <div class="performance-copy">
+      <section class="visual-chapter stage-chapter" aria-label="Live performance highlights">
+        <div class="chapter-heading">
           <span>LIVE PERFORMANCE</span>
           <h3>214+ shows</h3>
           <p>From university stages to major public events across India and Saudi Arabia.</p>
         </div>
-      </div>
 
-      <div class="creative-strip">
-        <article>
-          <img src="hero.webp" alt="Aman Ahmad in the studio wearing headphones">
+        <div class="cinematic-carousel stage-carousel" data-carousel="stage">
+          <div class="carousel-slide active video-slide">
+            <video muted playsinline preload="metadata">
+              <source src="live-shows.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="carousel-slide"><img src="stage-1.jpg" alt="Aman Ahmad performing live"></div>
+          <div class="carousel-slide"><img src="stage-2.jpg" alt="Aman Ahmad performing at a large event"></div>
+          <div class="carousel-slide"><img src="stage-3.jpg" alt="Aman Ahmad performing on stage"></div>
+          <div class="carousel-shade"></div>
+        </div>
+      </section>
+
+      <section class="visual-chapter studio-chapter" aria-label="Studio work">
+        <div class="chapter-heading">
           <span>STUDIO</span>
-        </article>
-        <article>
-          <img src="crowd.webp" alt="Aman Ahmad performing live on stage">
-          <span>STAGE</span>
-        </article>
-        <article>
-          <img src="tedx.webp" alt="Aman Ahmad at TEDxJMI">
-          <span>TEDx TALKS</span>
-        </article>
-      </div>
+          <h3>Where performance became craft.</h3>
+          <p>Recording, experimentation and audio-led creative work behind the stage.</p>
+        </div>
 
-      <div class="media-grid">
-        <article>
+        <div class="cinematic-carousel studio-carousel" data-carousel="studio">
+          <div class="carousel-slide active"><img src="studio-1.jpg" alt="Aman Ahmad recording in a studio"></div>
+          <div class="carousel-slide"><img src="studio-2.jpg" alt="Aman Ahmad in a recording studio"></div>
+          <div class="carousel-slide"><img src="studio-3.jpg" alt="Aman Ahmad during a creative performance shoot"></div>
+          <div class="carousel-shade"></div>
+        </div>
+      </section>
+
+      <div class="credentials-grid">
+        <article class="credential-card image-card">
+          <img src="tedx-talk.jpg" alt="Aman Ahmad performing at TEDxJMI">
+          <div class="credential-copy">
+            <span>TEDx TALKS</span>
+            <h3>Ideas delivered live.</h3>
+          </div>
+        </article>
+
+        <article class="credential-card image-card">
           <img src="wiba.webp" alt="World Influencers and Bloggers Award">
-          <span>WIBA WINNER</span>
+          <div class="credential-copy">
+            <span>WIBA WINNER</span>
+            <h3>Best Entertainment Influencer.</h3>
+          </div>
         </article>
-      </div>
 
-      <a class="spotify" href="https://open.spotify.com/artist/58H9qdFnbqrGQyEsg9sNwV" target="_blank" rel="noopener">
-        <div>
-          <span>SPOTIFY</span>
-          <h3>Aman Ahmad</h3>
-        </div>
-        <div class="spotify-numbers">
-          <b>2M+</b><span>streams</span>
-          <b>50K+</b><span>monthly listeners</span>
-        </div>
-        <strong>Listen ↗</strong>
-      </a>
+        <a class="credential-card spotify-card" href="https://open.spotify.com/artist/58H9qdFnbqrGQyEsg9sNwV" target="_blank" rel="noopener">
+          <div>
+            <span>SPOTIFY</span>
+            <h3>Aman Ahmad</h3>
+          </div>
+          <div class="spotify-card-numbers">
+            <div><b>2M+</b><span>streams</span></div>
+            <div><b>50K+</b><span>monthly listeners</span></div>
+          </div>
+          <strong>Listen ↗</strong>
+        </a>
+      </div>
     </section>
 
     <section class="recognition">
@@ -773,6 +1031,7 @@
       <div>
         <span>Professional enquiries</span>
         <h2>Contact</h2>
+        <p class="cross-cultural-note">Raised in Saudi Arabia · Shaped across India and Ireland</p>
       </div>
       <div class="contact-links">
         <a href="mailto:moinuddin.ahmad.work@gmail.com">Email ↗</a>
@@ -830,6 +1089,62 @@
       podcastSound.textContent = 'Sound on';
     });
   }
+</script>
+
+
+<script>
+  function startImageCarousel(root, interval = 6000) {
+    const slides = [...root.querySelectorAll('.carousel-slide')];
+    if (slides.length < 2) return;
+
+    let index = 0;
+    window.setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, interval);
+  }
+
+  function startStageCarousel(root) {
+    const slides = [...root.querySelectorAll('.carousel-slide')];
+    if (slides.length < 2) return;
+
+    const video = slides[0].querySelector('video');
+    let index = 0;
+    let imageTimer;
+
+    const showSlide = (nextIndex) => {
+      slides[index].classList.remove('active');
+      index = nextIndex;
+      slides[index].classList.add('active');
+
+      if (index === 0 && video) {
+        window.clearTimeout(imageTimer);
+        video.currentTime = 0;
+        video.play().catch(() => {
+          imageTimer = window.setTimeout(() => showSlide(1), 8000);
+        });
+      } else {
+        imageTimer = window.setTimeout(() => {
+          showSlide((index + 1) % slides.length);
+        }, 6000);
+      }
+    };
+
+    if (video) {
+      video.loop = false;
+      video.addEventListener('ended', () => showSlide(1));
+      video.play().catch(() => {
+        imageTimer = window.setTimeout(() => showSlide(1), 8000);
+      });
+    }
+  }
+
+  const studioCarousel = document.querySelector('[data-carousel="studio"]');
+  const stageCarousel = document.querySelector('[data-carousel="stage"]');
+
+  if (studioCarousel) startImageCarousel(studioCarousel, 6000);
+  if (stageCarousel) startStageCarousel(stageCarousel);
 </script>
 
 </body>
