@@ -312,6 +312,281 @@
   }
 </style>
 
+
+<style>
+  /* Final site pass */
+  .media-title h2,
+  .music-title h2{
+    font-family:"DM Sans",sans-serif;
+    font-weight:600;
+    letter-spacing:-.055em;
+    line-height:.94;
+  }
+
+  .media-title h2{font-size:clamp(58px,8vw,118px)}
+  .music-title h2{font-size:clamp(48px,6.8vw,96px);max-width:1080px}
+
+  .podcast-media{
+    position:relative;
+    height:220px;
+    overflow:hidden;
+  }
+
+  #work .podcast-media video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .podcast-sound{
+    position:absolute;
+    right:14px;
+    bottom:14px;
+    z-index:3;
+    border:1px solid rgba(255,255,255,.35);
+    background:rgba(0,0,0,.68);
+    color:#fff;
+    padding:9px 12px;
+    border-radius:999px;
+    font:500 11px/1 "DM Sans",sans-serif;
+    cursor:pointer;
+    backdrop-filter:blur(8px);
+  }
+
+  .podcast-metrics{
+    position:absolute;
+    left:14px;
+    bottom:14px;
+    display:flex;
+    gap:8px;
+    z-index:3;
+  }
+
+  .podcast-metrics span{
+    padding:8px 10px;
+    border-radius:999px;
+    background:rgba(0,0,0,.7);
+    border:1px solid rgba(255,255,255,.18);
+    color:#d8d3ca;
+    font-size:10px;
+    backdrop-filter:blur(8px);
+  }
+
+  .podcast-metrics b{color:#fff}
+
+  .public-showcase{
+    max-width:1160px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr .8fr;
+    gap:80px;
+    align-items:center;
+  }
+
+  .phone-stage{
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+
+  .phone-stage::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:radial-gradient(circle,#c4ae7233,transparent 68%);
+    filter:blur(10px);
+  }
+
+  .iphone{
+    position:relative;
+    width:min(350px,72vw);
+    aspect-ratio:9/19.5;
+    padding:10px;
+    border-radius:54px;
+    background:linear-gradient(145deg,#4c4c4c,#111 32%,#393939 70%,#0c0c0c);
+    box-shadow:0 40px 100px rgba(0,0,0,.65),inset 0 0 0 1px #777;
+    z-index:2;
+  }
+
+  .iphone video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:45px;
+    display:block;
+  }
+
+  .iphone-island{
+    position:absolute;
+    top:22px;
+    left:50%;
+    transform:translateX(-50%);
+    width:102px;
+    height:27px;
+    border-radius:999px;
+    background:#050505;
+    z-index:3;
+  }
+
+  .insight-proof{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:86px 1fr;
+    gap:16px;
+    align-items:center;
+    max-width:410px;
+    padding:12px;
+    border:1px solid #2d2d2d;
+    background:#151515;
+  }
+
+  .insight-proof img{
+    width:86px;
+    height:104px;
+    object-fit:cover;
+    object-position:top;
+  }
+
+  .insight-proof span{
+    font-size:9px;
+    letter-spacing:.16em;
+    color:#c4ae72;
+    font-weight:600;
+  }
+
+  .insight-proof p{
+    margin:7px 0 0;
+    font-size:13px;
+    color:#bcb7ae;
+  }
+
+  .music-intro{
+    max-width:940px;
+    margin:0 auto 70px;
+  }
+
+  .music-intro p{
+    font-family:"DM Sans",sans-serif;
+    font-size:clamp(25px,3vw,40px);
+    line-height:1.32;
+    letter-spacing:-.025em;
+    color:#e1ddd5;
+  }
+
+  .music-intro .music-proof-line{
+    margin-top:24px;
+    font-size:18px;
+    line-height:1.65;
+    color:#aaa49b;
+    max-width:880px;
+  }
+
+  .performance-feature{
+    max-width:1160px;
+    height:540px;
+    margin:0 auto 18px;
+    position:relative;
+    overflow:hidden;
+    background:#111;
+  }
+
+  .performance-feature video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(.7);
+  }
+
+  .performance-copy{
+    position:absolute;
+    left:0;
+    bottom:0;
+    max-width:560px;
+    padding:38px;
+    background:linear-gradient(transparent,rgba(0,0,0,.92));
+  }
+
+  .performance-copy span,
+  .creative-strip span{
+    font-size:10px;
+    letter-spacing:.17em;
+    color:#c4ae72;
+    font-weight:600;
+  }
+
+  .performance-copy h3{
+    font-family:"DM Sans",sans-serif;
+    font-size:clamp(42px,5vw,72px);
+    letter-spacing:-.05em;
+    margin:9px 0;
+  }
+
+  .performance-copy p{
+    color:#c8c3ba;
+    line-height:1.5;
+  }
+
+  .creative-strip{
+    max-width:1160px;
+    margin:0 auto 18px;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:14px;
+  }
+
+  .creative-strip article{
+    height:340px;
+    position:relative;
+    overflow:hidden;
+    background:#111;
+  }
+
+  .creative-strip img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .45s ease;
+  }
+
+  .creative-strip article:hover img{transform:scale(1.025)}
+
+  .creative-strip span{
+    position:absolute;
+    left:16px;
+    bottom:16px;
+    padding:8px 10px;
+    background:rgba(0,0,0,.68);
+  }
+
+  .brand-audio-card{
+    display:flex;
+    align-items:end;
+    padding:28px;
+    background:radial-gradient(circle at 15% 15%,#3c3323,#111 62%);
+  }
+
+  .brand-audio-card h3{
+    font-family:"DM Sans",sans-serif;
+    font-size:38px;
+    letter-spacing:-.04em;
+    margin:10px 0;
+  }
+
+  .brand-audio-card p{color:#bbb6ae;line-height:1.5}
+
+  @media(max-width:900px){
+    .public-showcase{grid-template-columns:1fr;gap:30px}
+    .phone-stage{min-height:620px}
+    .creative-strip{grid-template-columns:1fr}
+    .creative-strip article{height:380px}
+    .performance-feature{height:460px}
+  }
+</style>
+
 </head>
 <body>
   <header class="nav">
@@ -339,7 +614,7 @@
 
     <section id="work" class="section">
       <div class="section-title">
-        <span>Selected Projects</span>
+        <span>Work</span>
         <h2>Selected Projects</h2>
       </div>
 
@@ -372,9 +647,16 @@
 
       <div class="podcast-proof">
         <a class="work-card" href="https://youtu.be/knkXFNoGyn4?si=WQSBxxcLhovutA9D" target="_blank" rel="noopener">
-          <video muted loop playsinline preload="metadata">
-            <source src="podcast-preview.mp4" type="video/mp4">
-          </video>
+          <div class="podcast-media">
+            <video id="podcast-video" muted loop playsinline preload="metadata">
+              <source src="podcast-preview.mp4" type="video/mp4">
+            </video>
+            <button class="podcast-sound" id="podcast-sound" type="button">Play with sound</button>
+            <div class="podcast-metrics">
+              <span><b>300K+</b> Instagram</span>
+              <span><b>40K+</b> YouTube</span>
+            </div>
+          </div>
 
           <div class="work-card-copy">
             <span>THE ADIL AHMAD SHOW</span>
@@ -438,48 +720,96 @@
 
 
     <section id="media" class="section dark-section">
-      <div class="section-title">
+      <div class="section-title media-title">
         <span>Public Work</span>
         <h2>By Aman Ahmad</h2>
       </div>
 
-      <div class="public-grid">
+      <div class="public-showcase">
         <div class="public-copy">
-          <p>Independent social commentary on faith, society and the human story.</p>
+          <p>Independent commentary on faith, society and the human story.</p>
           <div class="large-metric">1.08M</div>
-          <span>views on a single video</span>
+          <span>views on a single independently produced video</span>
+
           <div class="sub-metrics">
             <div><b>840K+</b><span>accounts reached</span></div>
             <div><b>3,989</b><span>followers gained</span></div>
           </div>
-          <a href="https://www.instagram.com/byamanahmad" target="_blank" rel="noopener">View Instagram ↗</a>
+
+          <a href="https://www.instagram.com/byamanahmad" target="_blank" rel="noopener">View on Instagram ↗</a>
+
+          <div class="insight-proof">
+            <img src="reel-insights.webp" alt="Instagram reel insights showing more than one million views">
+            <div>
+              <span>PERFORMANCE PROOF</span>
+              <p>Organic reach from a single commentary video.</p>
+            </div>
+          </div>
         </div>
-        <img src="reel-insights.webp" alt="Instagram Reel insights showing over one million views">
+
+        <div class="phone-stage" aria-label="Aman Ahmad social commentary reels">
+          <div class="iphone">
+            <div class="iphone-island"></div>
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="social-reels.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="music" class="section">
-      <div class="section-title">
+      <div class="section-title music-title">
         <span>Music & Performance</span>
-        <h2>Archive</h2>
+        <h2>Understanding attention through performance.</h2>
       </div>
 
       <div class="music-intro">
-        <p>Before moving into content strategy, Aman performed professionally as one half of Twinztagram across India and Saudi Arabia. The work included TEDx, Riyadh Season, television and radio appearances, alongside original music reaching more than two million Spotify streams.</p>
+        <p>The stage came first. Years of performing before live audiences shaped Aman’s understanding of attention, timing and communication—the foundation of the work he does today.</p>
+        <p class="music-proof-line">The journey includes TEDx talks, 214+ live shows across India and abroad, television and radio appearances, playback and concept work for Vivo and Meesho, and original music surpassing two million Spotify streams.</p>
+      </div>
+
+      <div class="performance-feature">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="live-shows.mp4" type="video/mp4">
+        </video>
+        <div class="performance-copy">
+          <span>LIVE PERFORMANCE</span>
+          <h3>214+ shows</h3>
+          <p>From university stages to major public events across India and Saudi Arabia.</p>
+        </div>
+      </div>
+
+      <div class="creative-strip">
+        <article>
+          <img src="hero.webp" alt="Aman Ahmad in the studio wearing headphones">
+          <span>STUDIO</span>
+        </article>
+        <article>
+          <img src="crowd.webp" alt="Aman Ahmad performing live on stage">
+          <span>STAGE</span>
+        </article>
+        <article>
+          <img src="tedx.webp" alt="Aman Ahmad at TEDxJMI">
+          <span>TEDx TALKS</span>
+        </article>
       </div>
 
       <div class="media-grid">
-        <article>
-          <img src="crowd.webp" alt="Live performance">
-          <span>LIVE PERFORMANCE</span>
-        </article>
         <article>
           <img src="tedx.webp" alt="TEDxJMI appearance">
           <span>TEDxJMI</span>
         </article>
         <article>
           <img src="wiba.webp" alt="World Influencers and Bloggers Award">
-          <span>WIBA 2021</span>
+          <span>WIBA WINNER</span>
+        </article>
+        <article class="brand-audio-card">
+          <div>
+            <span>BRAND AUDIO</span>
+            <h3>Vivo & Meesho</h3>
+            <p>Audio and concept lead for television advertising.</p>
+          </div>
         </article>
       </div>
 
@@ -502,7 +832,7 @@
       <div>World Influencers & Bloggers Award</div>
       <div>India TV</div>
       <div>Red FM</div>
-      <div>UCD</div>
+      <div>University College Dublin</div>
     </section>
 
     <section id="contact" class="contact">
@@ -537,6 +867,36 @@
       });
     }
   </script>
+
+
+<script>
+  const podcastCard = document.querySelector('.podcast-proof .work-card');
+  const podcastVideo = document.getElementById('podcast-video');
+  const podcastSound = document.getElementById('podcast-sound');
+
+  if (podcastCard && podcastVideo) {
+    podcastCard.addEventListener('mouseenter', () => {
+      podcastVideo.play().catch(() => {});
+    });
+
+    podcastCard.addEventListener('mouseleave', () => {
+      podcastVideo.pause();
+      podcastVideo.currentTime = 0;
+      podcastVideo.muted = true;
+      if (podcastSound) podcastSound.textContent = 'Play with sound';
+    });
+  }
+
+  if (podcastSound && podcastVideo) {
+    podcastSound.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      podcastVideo.muted = false;
+      podcastVideo.play().catch(() => {});
+      podcastSound.textContent = 'Sound on';
+    });
+  }
+</script>
 
 </body>
 </html>
