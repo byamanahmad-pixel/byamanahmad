@@ -14,213 +14,303 @@
   <link rel="stylesheet" href="styles.css">
 
 <style>
-    #work{
-      padding-top:10vh;
-      padding-bottom:10vh;
-    }
-    #work .section-title{
-      margin-bottom:54px;
-    }
-    #work .section-title h2{
-      font-family:"DM Sans",sans-serif;
-      font-size:clamp(40px,5.5vw,76px);
-      font-weight:500;
-      letter-spacing:-.045em;
-      line-height:1;
-      max-width:820px;
+  #work{
+    padding-top:9vh;
+    padding-bottom:10vh;
+  }
+
+  #work .section-title{
+    display:block;
+    margin-bottom:52px;
+  }
+
+  #work .section-title > span{
+    display:block;
+    margin-bottom:14px;
+  }
+
+  #work .section-title h2{
+    font-family:"DM Sans",sans-serif;
+    font-size:clamp(38px,4.6vw,66px);
+    font-weight:500;
+    letter-spacing:-.045em;
+    line-height:1;
+    max-width:760px;
+    margin:0;
+  }
+
+  #work .feature{
+    grid-template-columns:.92fr 1.08fr;
+    gap:34px;
+    max-width:1120px;
+    margin:0 auto 78px;
+    align-items:center;
+  }
+
+  #work .feature-copy h3,
+  #work .work-card-copy h3,
+  #work .dark-visual h3{
+    font-family:"DM Sans",sans-serif;
+    font-weight:500;
+    letter-spacing:-.03em;
+  }
+
+  #work .feature-copy h3{
+    font-size:clamp(32px,3.7vw,52px);
+    line-height:1.05;
+    margin:14px 0;
+  }
+
+  #work .feature-copy p,
+  #work .work-card-copy p{
+    max-width:610px;
+    font-size:16px;
+    line-height:1.55;
+  }
+
+  #work .feature-media{
+    position:relative;
+    height:410px;
+    overflow:hidden;
+    background:#111;
+  }
+
+  #work .feature-media video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  #work .sound-button{
+    position:absolute;
+    right:16px;
+    bottom:16px;
+    border:1px solid rgba(255,255,255,.35);
+    background:rgba(0,0,0,.68);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:999px;
+    font:500 12px/1 "DM Sans",sans-serif;
+    cursor:pointer;
+    backdrop-filter:blur(8px);
+  }
+
+  #work .conversations-heading{
+    max-width:1120px;
+    margin:0 auto 22px;
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:24px;
+  }
+
+  #work .conversations-heading span{
+    font-size:11px;
+    letter-spacing:.17em;
+    color:#c4ae72;
+    font-weight:600;
+  }
+
+  #work .conversations-heading h3{
+    margin:0;
+    font-family:"DM Sans",sans-serif;
+    font-size:clamp(28px,3.2vw,44px);
+    font-weight:500;
+    letter-spacing:-.035em;
+  }
+
+  #work .podcast-proof{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    max-width:1120px;
+    margin:0 auto 78px;
+  }
+
+  #work .podcast-proof .work-card,
+  #work .guest-card{
+    height:430px;
+    min-height:0;
+  }
+
+  #work .podcast-proof .work-card{
+    display:grid;
+    grid-template-rows:220px 1fr;
+  }
+
+  #work .podcast-proof .work-card video{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+  }
+
+  #work .work-card-copy{
+    padding:22px;
+  }
+
+  #work .work-card-copy h3{
+    font-size:clamp(24px,2.45vw,34px);
+    line-height:1.05;
+    margin:9px 0 10px;
+  }
+
+  #work .work-card-copy strong{
+    display:block;
+    margin-top:14px;
+    font-size:12px;
+  }
+
+  #work .guest-card{
+    position:relative;
+    overflow:hidden;
+    background:#0d0d0d;
+    color:#fff;
+    text-decoration:none;
+  }
+
+  #work .guest-card img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    background:#0d0d0d;
+    transition:transform .4s ease,filter .4s ease;
+  }
+
+  #work .guest-card:hover img{
+    transform:scale(1.01);
+    filter:brightness(.84);
+  }
+
+  #work .guest-card-copy{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:22px;
+    background:linear-gradient(transparent,rgba(0,0,0,.94));
+  }
+
+  #work .guest-card-copy span{
+    font-size:10px;
+    letter-spacing:.17em;
+    color:#c4ae72;
+    font-weight:600;
+  }
+
+  #work .guest-card-copy h3{
+    font-family:"DM Sans",sans-serif;
+    font-size:28px;
+    font-weight:500;
+    letter-spacing:-.03em;
+    margin:8px 0 6px;
+  }
+
+  #work .guest-card-copy p{
+    color:#d0cbc2;
+    font-size:14px;
+    line-height:1.45;
+    max-width:420px;
+    margin:0;
+  }
+
+  #work .guest-card-copy strong{
+    display:block;
+    margin-top:12px;
+    font-size:12px;
+  }
+
+  #work .project-notes{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:16px;
+  }
+
+  #work .project-notes span{
+    padding:8px 11px;
+    border:1px solid #343434;
+    border-radius:999px;
+    font-size:10px;
+    color:#bbb6ae;
+  }
+
+  #work .work-grid{
+    max-width:1120px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  #work .dark-card{
+    min-height:360px;
+    display:grid;
+    grid-template-columns:.75fr 1.25fr;
+  }
+
+  #work .dark-visual{
+    height:auto;
+    padding:30px;
+  }
+
+  #work .dark-visual h3{
+    font-size:clamp(30px,3.5vw,46px);
+    line-height:1;
+    margin:10px 0;
+  }
+
+  #work .dark-card .work-card-copy{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:32px;
+  }
+
+  #work .metrics{
+    margin-top:22px;
+  }
+
+  #work .metrics b{
+    font-size:26px;
+  }
+
+  #work .wide{
+    min-height:410px;
+  }
+
+  #work .wide .work-card-copy{
+    max-width:650px;
+    padding:34px;
+  }
+
+  #work .wide .work-card-copy p{
+    max-width:560px;
+    font-size:16px;
+    line-height:1.55;
+  }
+
+  @media(max-width:900px){
+    #work .feature,
+    #work .podcast-proof,
+    #work .dark-card{
+      grid-template-columns:1fr;
     }
 
-    #work .feature{
-      grid-template-columns:.9fr 1.1fr;
-      gap:36px;
-      max-width:1180px;
-      margin:0 auto 70px;
-      align-items:center;
-    }
-    #work .feature-copy h3,
-    #work .work-card-copy h3,
-    #work .dark-visual h3{
-      font-family:"DM Sans",sans-serif;
-      font-weight:500;
-      letter-spacing:-.03em;
-    }
-    #work .feature-copy h3{
-      font-size:clamp(34px,4vw,56px);
-      line-height:1.04;
-      margin:14px 0;
-    }
-    #work .feature-copy p,
-    #work .work-card-copy p{
-      max-width:620px;
-      font-size:16px;
-      line-height:1.55;
-    }
     #work .feature-media{
-      position:relative;
-      height:430px;
-      overflow:hidden;
-      background:#111;
-    }
-    #work .feature-media video{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    #work .sound-button{
-      position:absolute;
-      right:16px;
-      bottom:16px;
-      border:1px solid rgba(255,255,255,.35);
-      background:rgba(0,0,0,.68);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:999px;
-      font:500 12px/1 "DM Sans",sans-serif;
-      cursor:pointer;
-      backdrop-filter:blur(8px);
+      height:350px;
     }
 
-    #work .podcast-proof{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:18px;
-      max-width:1180px;
-      margin:0 auto 18px;
-    }
     #work .podcast-proof .work-card,
     #work .guest-card{
-      min-height:500px;
-    }
-    #work .podcast-proof .work-card video{
-      height:58%;
-      object-fit:cover;
-    }
-    #work .work-card-copy{
-      padding:24px;
-    }
-    #work .work-card-copy h3{
-      font-size:clamp(28px,3vw,42px);
-      line-height:1.04;
-      margin:10px 0;
+      height:430px;
     }
 
-    #work .guest-card{
-      position:relative;
-      overflow:hidden;
-      background:#111;
-      color:#fff;
-      text-decoration:none;
-    }
-    #work .guest-card img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      object-position:center;
-      background:#0d0d0d;
-      transition:transform .45s ease,filter .45s ease;
-    }
-    #work .guest-card:hover img{
-      transform:scale(1.01);
-      filter:brightness(.82);
-    }
-    #work .guest-card-copy{
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      padding:24px;
-      background:linear-gradient(transparent,rgba(0,0,0,.92));
-    }
-    #work .guest-card-copy span{
-      font-size:10px;
-      letter-spacing:.17em;
-      color:#c4ae72;
-      font-weight:600;
-    }
-    #work .guest-card-copy h3{
-      font-family:"DM Sans",sans-serif;
-      font-size:30px;
-      font-weight:500;
-      letter-spacing:-.03em;
-      margin:8px 0 6px;
-    }
-    #work .guest-card-copy p{
-      color:#d0cbc2;
-      font-size:15px;
-      line-height:1.45;
-      max-width:420px;
-    }
-    #work .guest-card-copy strong{
-      display:block;
-      margin-top:14px;
-      font-size:12px;
-    }
-
-    #work .project-notes{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:18px;
-    }
-    #work .project-notes span{
-      padding:8px 11px;
-      border:1px solid #343434;
-      border-radius:999px;
-      font-size:10px;
-      color:#bbb6ae;
-    }
-
-    #work .work-grid{
-      max-width:1180px;
-      margin:0 auto;
-      gap:18px;
-    }
     #work .dark-card{
-      min-height:470px;
+      min-height:430px;
     }
-    #work .dark-visual{
-      height:48%;
-      padding:30px;
-    }
-    #work .dark-visual h3{
-      font-size:clamp(34px,4vw,50px);
-      line-height:1;
-      margin:10px 0;
-    }
-    #work .metrics{
-      margin-top:22px;
-    }
-    #work .metrics b{
-      font-size:26px;
-    }
-
-    #work .wide{
-      min-height:460px;
-    }
-    #work .wide .work-card-copy{
-      max-width:660px;
-      padding:34px;
-    }
-    #work .wide .work-card-copy p{
-      max-width:570px;
-      font-size:16px;
-      line-height:1.55;
-    }
-
-    @media(max-width:900px){
-      #work .feature,
-      #work .podcast-proof{
-        grid-template-columns:1fr;
-      }
-      #work .feature-media{
-        height:360px;
-      }
-      #work .podcast-proof .work-card,
-      #work .guest-card{
-        min-height:460px;
-      }
-    }
-  </style>
+  }
+</style>
 
 </head>
 <body>
@@ -249,8 +339,8 @@
 
     <section id="work" class="section">
       <div class="section-title">
-        <span>Selected Work</span>
-        <h2>Projects across business, media and brands.</h2>
+        <span>Selected Projects</span>
+        <h2>Selected Projects</h2>
       </div>
 
       <article class="feature">
@@ -264,6 +354,7 @@
             <span>Stakeholder alignment</span>
           </div>
         </div>
+
         <div class="feature-media">
           <video id="musanadah-video" muted loop playsinline preload="metadata" controls>
             <source src="musanadah.mp4" type="video/mp4">
@@ -272,14 +363,22 @@
         </div>
       </article>
 
+      <div class="conversations-heading">
+        <div>
+          <span>MEDIA</span>
+          <h3>Featured Conversations</h3>
+        </div>
+      </div>
+
       <div class="podcast-proof">
         <a class="work-card" href="https://youtu.be/knkXFNoGyn4?si=WQSBxxcLhovutA9D" target="_blank" rel="noopener">
           <video muted loop playsinline preload="metadata">
             <source src="podcast-preview.mp4" type="video/mp4">
           </video>
+
           <div class="work-card-copy">
             <span>THE ADIL AHMAD SHOW</span>
-            <h3>Helped grow one of India’s fastest-growing independent podcast platforms.</h3>
+            <h3>Helping build one of India’s fastest-growing independent podcast platforms.</h3>
             <div class="project-notes">
               <span>Editorial direction</span>
               <span>Guest outreach</span>
@@ -293,7 +392,7 @@
         <a class="guest-card" href="https://www.instagram.com/officialraga/" target="_blank" rel="noopener">
           <img src="raga.webp" alt="Aman Ahmad with Indian rapper RAGA">
           <div class="guest-card-copy">
-            <span>FROM THE GUEST ROOM</span>
+            <span>FEATURED GUEST</span>
             <h3>RAGA</h3>
             <p>Onboarded one of India’s leading voices in hip-hop and a recognised reality-show judge.</p>
             <strong>View @officialraga ↗</strong>
@@ -307,6 +406,7 @@
             <span>B2B CONSULTANCY</span>
             <h3>Musanadah Facilities</h3>
           </div>
+
           <div class="work-card-copy">
             <p>Advised leadership on educational LinkedIn formats, founder-led videos and a webinar funnel with a measurable commercial outcome.</p>
             <div class="metrics">
@@ -321,19 +421,21 @@
           <video muted loop playsinline preload="metadata">
             <source src="mg-motor.mp4" type="video/mp4">
           </video>
+
           <div class="work-card-copy over">
             <span>MG MOTOR INDIA</span>
-            <h3>End-to-end creative production for an organic brand collaboration.</h3>
-            <p>Built the freelance team, shaped the creative and managed the production cycle from initial concept through final delivery.</p>
+            <h3>Behind every campaign is a hundred decisions.</h3>
+            <p>Built the freelance production team and coordinated the project from planning through final delivery.</p>
             <div class="project-notes">
               <span>Creative direction</span>
-              <span>Team assembly</span>
-              <span>Production oversight</span>
+              <span>Production</span>
+              <span>Team coordination</span>
             </div>
           </div>
         </article>
       </div>
     </section>
+
 
     <section id="media" class="section dark-section">
       <div class="section-title">
