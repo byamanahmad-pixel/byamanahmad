@@ -1254,6 +1254,34 @@
 }
 </style>
 
+
+<style>
+  /* Decorative hero montage: never expose native media controls */
+  #hero-video{
+    pointer-events:none;
+    -webkit-user-select:none;
+    user-select:none;
+  }
+
+  #hero-video::-webkit-media-controls,
+  #hero-video::-webkit-media-controls-enclosure,
+  #hero-video::-webkit-media-controls-panel,
+  #hero-video::-webkit-media-controls-play-button,
+  #hero-video::-webkit-media-controls-start-playback-button,
+  #hero-video::-webkit-media-controls-overlay-play-button,
+  #hero-video::-webkit-media-controls-timeline,
+  #hero-video::-webkit-media-controls-current-time-display,
+  #hero-video::-webkit-media-controls-time-remaining-display,
+  #hero-video::-webkit-media-controls-fullscreen-button,
+  #hero-video::-webkit-media-controls-toggle-closed-captions-button{
+    display:none !important;
+    -webkit-appearance:none !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+  }
+</style>
+
 </head>
 <body>
   <header class="nav">
@@ -1278,7 +1306,11 @@
         webkit-playsinline
         preload="metadata"
         poster="hero.webp"
-        aria-hidden="true">
+        controls="false"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback nofullscreen"
+        aria-hidden="true"
+        tabindex="-1">
         <source src="riyadh.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
@@ -1678,42 +1710,55 @@
 
 <script>
   (() => {
-    const hero = document.getElementById('hero-video');
-    if (!hero) return;
+    const startHeroMontage = () => {
+      const hero = document.getElementById('hero-video');
+      if (!hero) return;
 
-    const isMobile = window.matchMedia('(max-width: 767px), (pointer: coarse)').matches;
-    const preferredSource = isMobile ? 'riyadh-mobile.mp4' : 'riyadh.mp4';
+      const isMobile = window.matchMedia('(max-width: 767px), (pointer: coarse)').matches;
+      const preferredSource = isMobile ? 'riyadh-mobile.mp4' : 'riyadh.mp4';
+      const source = hero.querySelector('source');
 
-    const currentSource = hero.querySelector('source');
-    if (currentSource && !currentSource.src.endsWith(preferredSource)) {
-      currentSource.src = preferredSource;
-      hero.load();
-    }
-
-    hero.muted = true;
-    hero.setAttribute('muted', '');
-    hero.setAttribute('playsinline', '');
-    hero.setAttribute('webkit-playsinline', '');
-
-    const attemptPlayback = () => {
-      const playPromise = hero.play();
-      if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(() => {
-          /* Safari may require the first touch; poster remains visible meanwhile. */
-        });
+      if (source && !source.src.endsWith(preferredSource)) {
+        source.src = preferredSource;
+        hero.load();
       }
+
+      hero.controls = false;
+      hero.removeAttribute('controls');
+      hero.disablePictureInPicture = true;
+      hero.setAttribute('disablepictureinpicture', '');
+      hero.setAttribute('controlslist', 'nodownload noplaybackrate noremoteplayback nofullscreen');
+      hero.muted = true;
+      hero.defaultMuted = true;
+      hero.loop = true;
+      hero.playsInline = true;
+      hero.setAttribute('muted', '');
+      hero.setAttribute('playsinline', '');
+      hero.setAttribute('webkit-playsinline', '');
+      hero.setAttribute('tabindex', '-1');
+
+      const play = () => {
+        hero.controls = false;
+        hero.removeAttribute('controls');
+        const promise = hero.play();
+        if (promise && typeof promise.catch === 'function') promise.catch(() => {});
+      };
+
+      requestAnimationFrame(() => requestAnimationFrame(play));
+      window.setTimeout(play, 150);
+      window.setTimeout(play, 700);
+
+      document.addEventListener('touchstart', play, { once: true, passive: true });
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) play();
+      });
     };
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', attemptPlayback, { once: true });
+      window.addEventListener('DOMContentLoaded', startHeroMontage, { once: true });
     } else {
-      attemptPlayback();
+      startHeroMontage();
     }
-
-    document.addEventListener('touchstart', attemptPlayback, { once: true, passive: true });
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) attemptPlayback();
-    });
   })();
 </script>
 

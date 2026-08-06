@@ -25,6 +25,3 @@ const observer = new IntersectionObserver(entries => {
 
 targets.forEach(el => observer.observe(el));
 
-if (window.matchMedia('(hover: none)').matches) {
-  document.querySelectorAll('video').forEach(v => v.setAttribute('controls',''));
-}
