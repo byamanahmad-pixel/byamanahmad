@@ -1,16 +1,61 @@
-
 document.getElementById('year').textContent = new Date().getFullYear();
 
-document.querySelectorAll('video').forEach(video => {
-  const card = video.closest('.feature, .work-card');
-  if (!card) return;
-  card.addEventListener('mouseenter', () => video.play().catch(()=>{}));
-  card.addEventListener('mouseleave', () => {
-    video.pause();
-    try { video.currentTime = 0; } catch(e) {}
+// Desktop: preview project videos on hover.
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.querySelectorAll('video').forEach(video => {
+    const card = video.closest('.feature, .work-card');
+    if (!card) return;
+
+    card.addEventListener('mouseenter', () => video.play().catch(() => {}));
+    card.addEventListener('mouseleave', () => {
+      video.pause();
+      try { video.currentTime = 0; } catch (e) {}
+    });
+  });
+}
+
+// Mobile: play the three project previews when they enter the screen.
+// This avoids relying on hover or a first tap on iPhone Safari.
+const mobileProjectVideos = document.querySelectorAll('[data-mobile-autoplay]');
+
+mobileProjectVideos.forEach(video => {
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+
+  // Try as soon as enough video data is available.
+  video.addEventListener('loadeddata', () => {
+    const rect = video.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      video.play().catch(() => {});
+    }
   });
 });
 
+if ('IntersectionObserver' in window) {
+  const videoObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, {
+    threshold: 0.18,
+    rootMargin: '180px 0px 180px 0px'
+  });
+
+  mobileProjectVideos.forEach(video => videoObserver.observe(video));
+} else {
+  mobileProjectVideos.forEach(video => video.play().catch(() => {}));
+}
+
+// Reveal animations.
 const targets = document.querySelectorAll('.section-title,.feature,.work-card,.public-copy,.public-grid img,.music-intro,.media-grid,.spotify,.recognition,.contact');
 targets.forEach(el => el.classList.add('reveal'));
 
@@ -21,7 +66,6 @@ const observer = new IntersectionObserver(entries => {
       observer.unobserve(entry.target);
     }
   });
-},{threshold:.12});
+}, { threshold: 0.12 });
 
 targets.forEach(el => observer.observe(el));
-
