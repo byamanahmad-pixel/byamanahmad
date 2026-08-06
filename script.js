@@ -69,3 +69,47 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 targets.forEach(el => observer.observe(el));
+
+
+// Mobile navigation.
+(() => {
+  const header = document.querySelector('.nav');
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const menu = document.getElementById('site-nav');
+
+  if (!header || !toggle || !menu) return;
+
+  const closeMenu = () => {
+    header.classList.remove('menu-open');
+    document.body.classList.remove('mobile-menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation menu');
+  };
+
+  const openMenu = () => {
+    header.classList.add('menu-open');
+    document.body.classList.add('mobile-menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close navigation menu');
+  };
+
+  toggle.addEventListener('click', () => {
+    if (header.classList.contains('menu-open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeMenu();
+  });
+})();
