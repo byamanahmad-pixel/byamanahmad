@@ -1268,7 +1268,17 @@
 
   <main id="top">
     <section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <video
+        class="hero-video"
+        id="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="metadata"
+        poster="hero.webp"
+        aria-hidden="true">
         <source src="riyadh.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
@@ -1663,6 +1673,48 @@
 
   runMiniCarousel('[data-carousel="studio"]', 6000);
   runMiniCarousel('[data-carousel="tedx"]', 6000);
+</script>
+
+
+<script>
+  (() => {
+    const hero = document.getElementById('hero-video');
+    if (!hero) return;
+
+    const isMobile = window.matchMedia('(max-width: 767px), (pointer: coarse)').matches;
+    const preferredSource = isMobile ? 'riyadh-mobile.mp4' : 'riyadh.mp4';
+
+    const currentSource = hero.querySelector('source');
+    if (currentSource && !currentSource.src.endsWith(preferredSource)) {
+      currentSource.src = preferredSource;
+      hero.load();
+    }
+
+    hero.muted = true;
+    hero.setAttribute('muted', '');
+    hero.setAttribute('playsinline', '');
+    hero.setAttribute('webkit-playsinline', '');
+
+    const attemptPlayback = () => {
+      const playPromise = hero.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {
+          /* Safari may require the first touch; poster remains visible meanwhile. */
+        });
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', attemptPlayback, { once: true });
+    } else {
+      attemptPlayback();
+    }
+
+    document.addEventListener('touchstart', attemptPlayback, { once: true, passive: true });
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) attemptPlayback();
+    });
+  })();
 </script>
 
 </body>
